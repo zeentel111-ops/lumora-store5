@@ -1,0 +1,15 @@
+export const metadata = { title: "الشروط والأحكام | Lumora" };
+
+export default function TermsPage() {
+  return (
+    <div className="pt-32 section-pad max-w-2xl mx-auto">
+      <h1 className="text-4xl font-bold mb-8 text-center">الشروط والأحكام</h1>
+      <div className="space-y-6 text-ivory-dim font-light leading-loose text-sm">
+        <p>باستخدامك لموقع Lumora فإنك توافقين على الشروط والأحكام التالية.</p>
+        <p>جميع الأسعار المعروضة بالدولار الأمريكي وقابلة للتغيير دون إشعار مسبق. تحتفظ Lumora بحق تعديل أو إلغاء أي طلب في حال توفر بيانات غير صحيحة.</p>
+        <p>يمكن إرجاع المنتجات غير المستخدمة خلال 7 أيام من تاريخ الاستلام وفق سياسة الإرجاع المعتمدة.</p>
+        <p className="text-xs text-gold-dim">* هذا نص أولي، يُنصح بمراجعته من مختص قانوني قبل الإطلاق الرسمي.</p>
+      </div>
+    </div>
+  );
+}

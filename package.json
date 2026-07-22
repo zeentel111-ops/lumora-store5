@@ -1,0 +1,62 @@
+import { Cairo, Poppins } from "next/font/google";
+import "./globals.css";
+import { CartProvider } from "@/context/CartContext";
+import { WishlistProvider } from "@/context/WishlistContext";
+import { LangProvider } from "@/context/LangContext";
+import { AuthProvider } from "@/context/AuthContext";
+import { Toaster } from "react-hot-toast";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+const cairo = Cairo({
+  subsets: ["arabic", "latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-cairo",
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-poppins",
+});
+
+export const metadata = {
+  title: "Lumora | العناية الفاخرة بالبشرة",
+  description:
+    "متجر Lumora الإلكتروني لمنتجات العناية بالبشرة الفاخرة — سيروم، كريمات، تونر وأقنعة بمكونات نقية ونتائج مثبتة.",
+  openGraph: {
+    title: "Lumora | العناية الفاخرة بالبشرة",
+    description: "طقوس عناية فاخرة لبشرة تستحق الأفضل.",
+    type: "website",
+  },
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="ar" dir="rtl">
+      <body className={`${cairo.variable} ${poppins.variable} font-ar bg-black text-ivory antialiased`}>
+        <AuthProvider>
+          <LangProvider>
+            <WishlistProvider>
+              <CartProvider>
+                <Header />
+                <main>{children}</main>
+                <Footer />
+                <Toaster
+                  position="top-center"
+                  toastOptions={{
+                    style: {
+                      background: "#161514",
+                      color: "#F7F5F2",
+                      border: "1px solid rgba(212,175,55,0.3)",
+                    },
+                  }}
+                />
+              </CartProvider>
+            </WishlistProvider>
+          </LangProvider>
+        </AuthProvider>
+      </body>
+    </html>
+  );
+}
